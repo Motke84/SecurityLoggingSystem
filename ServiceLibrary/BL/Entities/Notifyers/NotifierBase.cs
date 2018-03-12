@@ -32,7 +32,7 @@ namespace LoggingServiceLibrary.BL.Entities.Notifyers
 
         public void Notify(SecurityEvent securityEvent)
         {
-            _observers.AsParallel().ForAll(eventSubscriber => 
+            _observers.AsParallel().WithMergeOptions(ParallelMergeOptions.NotBuffered).ForAll(eventSubscriber => 
             {
                 eventSubscriber.Update(securityEvent);
             });

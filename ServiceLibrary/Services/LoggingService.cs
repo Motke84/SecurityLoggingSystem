@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Threading.Tasks;
 using LoggingServiceLibrary.BL.Entities;
 using LoggingServiceLibrary.BL.Entities.EventSubscribers;
 using LoggingServiceLibrary.BL.Entities.Notifyers;
@@ -22,7 +23,8 @@ namespace LoggingServiceLibrary
 
         public void LogSecurityEvent(SecurityEvent securityEvent)
         {
-            NotifiersManager.Notify(securityEvent);
+            Task.Factory.StartNew(() => NotifiersManager.Notify(securityEvent));
+
         }
     }
 }
