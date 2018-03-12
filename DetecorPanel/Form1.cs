@@ -48,5 +48,39 @@ namespace DetecorPanel
 
             EventProducer.Instance().LogSecurityEvent(securityEvent);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                Random random = new Random();
+                List<SecurityEvent> list = new List<SecurityEvent>();
+
+                for (int i = 0; i < 100000; i++)
+                {
+                    var securityEvent = new SecurityEvent()
+                    {
+                        PhysicalLocation = "Some Where " +i,
+                        DetectorId = i,
+                        EventDescription = "Help "+ i,
+                        DetectorType = (EnumsDedectorType) random.Next(0,1),
+                    };
+
+                    list.Add(securityEvent);
+                 //   Task task = new Task(() => EventProducer.Instance().LogSecurityEvent(securityEvent));
+                 //    task.Start();
+
+
+                }
+
+
+                list.AsParallel().ForAll(se => EventProducer.Instance().LogSecurityEvent(se));
+
+            });
+        }
+
+
+
+       
     }
 }

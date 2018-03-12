@@ -30,6 +30,7 @@
         {
             this._btn_fire = new System.Windows.Forms.Button();
             this._btn_motion = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _btn_fire
@@ -52,11 +53,22 @@
             this._btn_motion.UseVisualStyleBackColor = true;
             this._btn_motion.Click += new System.EventHandler(this._btn_motion_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(55, 259);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(162, 46);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Many Events";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 412);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this._btn_motion);
             this.Controls.Add(this._btn_fire);
             this.Name = "Form1";
@@ -69,6 +81,7 @@
 
         private System.Windows.Forms.Button _btn_fire;
         private System.Windows.Forms.Button _btn_motion;
+        private System.Windows.Forms.Button button1;
     }
 }
 

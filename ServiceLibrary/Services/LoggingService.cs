@@ -23,7 +23,7 @@ namespace LoggingServiceLibrary
 
         public void LogSecurityEvent(SecurityEvent securityEvent)
         {
-            Task.Factory.StartNew(() => NotifiersManager.Notify(securityEvent));
+            NotifiersManager.Notify(securityEvent);
 
         }
     }
