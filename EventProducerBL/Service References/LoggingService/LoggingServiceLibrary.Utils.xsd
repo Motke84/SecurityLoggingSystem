@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LoggingServiceLibrary.Utils" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LoggingServiceLibrary.Utils" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="Enums.DedectorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Fire" />
+      <xs:enumeration value="Security" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Enums.DedectorType" nillable="true" type="tns:Enums.DedectorType" />
+  <xs:simpleType name="Enums.Severity">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Low" />
+      <xs:enumeration value="Medium" />
+      <xs:enumeration value="High" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Enums.Severity" nillable="true" type="tns:Enums.Severity" />
+</xs:schema>

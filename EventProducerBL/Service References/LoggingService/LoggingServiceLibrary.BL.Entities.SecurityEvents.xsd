@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LoggingServiceLibrary.BL.Entities.SecurityEvents" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LoggingServiceLibrary.BL.Entities.SecurityEvents" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/LoggingServiceLibrary.Utils" />
+  <xs:complexType name="SecurityEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DetectorId" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/LoggingServiceLibrary.Utils" minOccurs="0" name="DetectorType" type="q1:Enums.DedectorType" />
+      <xs:element minOccurs="0" name="EventDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhysicalLocation" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SecurityEvent" nillable="true" type="tns:SecurityEvent" />
+  <xs:complexType name="SeveritySecurityEvent">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecurityEvent">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LoggingServiceLibrary.Utils" minOccurs="0" name="Severity" type="q2:Enums.Severity" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SeveritySecurityEvent" nillable="true" type="tns:SeveritySecurityEvent" />
+</xs:schema>
